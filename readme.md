@@ -67,8 +67,13 @@ This guide explains how to set up and run the project using **manual installatio
 ---
 
 ## Docker Installation
-
-You can run the project entirely using Docker.
+install docker 
+start postgres 
+ -docker run -e POSTGRES_PASSWORD=mysecertpassword -d -p 5432:5432 postgres
+- build  the images -(docker build -t user-progress .)
+- start the image -(docker run -d -p 3000:3000 user-project)
 
 ### Docker Compose Installation Steps
 
+-install docker docker-compose
+-RUN `docker-compose-up`
