@@ -37,7 +37,7 @@ This guide explains how to set up and run the project using **manual installatio
    * Add your database credentials:
 
      ```env
-     DATABASE_URL="postgresql://postgres:mysecretpassword@localhost:5432/postgres"
+     DATABASE_URL="postgresql://postgres:mysecretpassword@postgress:5432/postgres"
      ```
 
 6. **Run Prisma migrations**
@@ -68,10 +68,11 @@ This guide explains how to set up and run the project using **manual installatio
 
 ## Docker Installation
 install docker 
+-start new network `docker network create data
 start postgres 
- -docker run -e POSTGRES_PASSWORD=mysecertpassword -d -p 5432:5432 postgres
-- build  the images -(docker build -t user-progress .)
-- start the image -(docker run -d -p 3000:3000 user-project)
+ -docker run --network data --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+- build  the images -(docker build --network=host -t user-progress .)
+- start the image -(docker run --network data -d -p 3000:3000 user-project)
 
 ### Docker Compose Installation Steps
 
