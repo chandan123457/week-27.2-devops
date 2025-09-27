@@ -4,18 +4,18 @@ services:
   postgres:
     image: postgres
     ports:
-      -5432:5432
+      - 5432:5432
     environment:
       - POSTGRES_PASSWORD=mysecretpassword
  
   user_app:
     build: 
-     network: new-data 
-     context: ./
-     dockerfile: dockerfile 
+      network: host  
+      context: ./
+      dockerfile: Dockerfile 
 
     environment:
-      -DATABASE_URL="postgresql://postgres:mysecretpassword@joker:5432/postgres"
+      - DATABASE_URL=postgresql://postgres:mysecretpassword@postgres:5432/postgres
 
     ports:
       - 3001:3000
